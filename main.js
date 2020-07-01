@@ -35,7 +35,7 @@ const upperCaseFirstLetters = function(arr){
 const changeToInitials=function(arr){
   const results=[]
   for(let i=0;i<arr.length;i++){
-    const ini = arr[i][0]+arr[arr[i].indexOf(' ')+1];
+    const ini = arr[i][0]+arr[i][arr[i].indexOf(' ')+1];
     results.push(ini)
   }
   return results
@@ -106,3 +106,5 @@ module.exports = {
   doubleOdd,
   add1ToLeft,
 }
+//let d= changeToInitials(['Cdd Gcc','Ajj Hjj'])
+//console.log(d)
