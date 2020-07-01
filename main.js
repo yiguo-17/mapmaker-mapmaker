@@ -1,31 +1,40 @@
-function doubleAll() {
+
+
+if (typeof doubleAll === 'undefined') {
+  doubleAll = undefined;
 }
 
-function absoluteValues() {
+if (typeof yelledGreetings === 'undefined') {
+  yelledGreetings = undefined;
 }
 
-function yelledGreetings() {
+if (typeof absoluteValues === 'undefined') {
+  absoluteValues = undefined;
 }
 
-function changeToInitials() {
+if (typeof upperCaseFirstLetters === 'undefined') {
+  upperCaseFirstLetters = undefined;
 }
 
-function doubleOdd() {
+if (typeof changeToInitials === 'undefined') {
+  changeToInitials = undefined;
 }
 
-function upperCaseFirstLetters() {
+if (typeof doubleOdd === 'undefined') {
+  doubleOdd = undefined;
 }
 
-function add1ToLeft() {
+if (typeof add1ToLeft === 'undefined') {
+  add1ToLeft = undefined;
 }
 
 
 module.exports = {
   doubleAll,
-  absoluteValues,
   yelledGreetings,
+  absoluteValues,
+  upperCaseFirstLetters,
   changeToInitials,
   doubleOdd,
-  upperCaseFirstLetters,
   add1ToLeft,
 }
