@@ -50,7 +50,18 @@ const doubleOdd = function(arr){
   return results;
 }
 
-
+const add1ToLeft = function(arr){
+  const digits=[];
+  const result= [];
+  for (let i=0; i< arr.length; i++){
+    digits.push(String(Math.abs(arr[i])).length)
+  }
+  for (let i=0; i< arr.length; i++){
+    if(arr[i]>0){result.push(arr[i]+10**digits[i])}
+    else {result.push(arr[i]-10**digits[i])}
+  }
+  return result;
+}
 
 /*******************************************
 * CODE DOWN HERE IS FOR INTERNAL USE ONLY. *
