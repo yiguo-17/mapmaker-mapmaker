@@ -1,4 +1,16 @@
+/******************
+ * YOUR CODE HERE *
+******************/
 
+
+
+
+
+
+/*******************************************
+* CODE DOWN HERE IS FOR INTERNAL USE ONLY. *
+*           PLEASE DON'T TOUCH!            *
+*******************************************/
 
 if (typeof doubleAll === 'undefined') {
   doubleAll = undefined;
