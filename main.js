@@ -27,7 +27,7 @@ const absoluteValues= function(arr){
 const upperCaseFirstLetters = function(arr){
   const results =[]
   for(let i=0;i<arr.length;i++){
-    results.push(arr[i][0].toUpperCase()+arr[i].slice(1))
+    results.push(arr[i][0].toUpperCase()+arr[i].slice(1).toLowerCase())
   }
   return results
 }
