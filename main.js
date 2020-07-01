@@ -1,9 +1,54 @@
 /******************
  * YOUR CODE HERE *
 ******************/
+const doubleAll = function(arr){
+  const results = [];
+  for (let i=0; i<arr.length;i++){
+    results.push(arr[i]*2);
+  }
+  return results;
+}
+const yelledGreetings = function(arr){
+  const results = [];
+  for(let i=0; i<arr.length;i++){
+    results.push(arr[i]+'!')
+  }
+  return results
+}
 
+const absoluteValues= function(arr){
+  const results =[];
+  for(let i=0; i< arr.length;i++){
+    results.push(Math.abs(arr[i]))
+  }
+  return results
+}
 
+const upperCaseFirstLetters = function(arr){
+  const results =[]
+  for(let i=0;i<arr.length;i++){
+    results.push(arr[i][0].toUpperCase()+arr[i].slice(1))
+  }
+  return results
+}
 
+const changeToInitials=function(arr){
+  const results=[]
+  for(let i=0;i<arr.length;i++){
+    const ini = arr[i][0]+arr[arr[i].indexOf(' ')+1];
+    results.push(ini)
+  }
+  return results
+}
+
+const doubleOdd = function(arr){
+  const results =[];
+  for (let i=0; i< arr.length; i++){
+    if(Math.abs(arr[i])%2===1){results.push(arr[i]*2)}
+    else{results.push(arr[i])}
+  }
+  return results;
+}
 
 
 
