@@ -21,3 +21,10 @@ This is your typical test-run assignment. `jest --watch-all` is your friend!
 
 ### Tasks
 
+* `doubleAll` - returns all numbers but doubled from the given array
+* `yelledGreetings` - returns the same strings but with exclamation points appended from the given array
+* `absoluteValues` - returns the absolute values of all numbers in the given array
+* `upperCaseFirstLetters` - returns a version of each string in the given array where the first letter has been capitalized
+* `changeToInitials` - returns the first letters from each word in the given array
+* `doubleOdd` - returns the numbers from the given array untouched, except for odd numbers (positive or negative), which it doubles
+* `add1ToLeft` - returns the numbers from the given array but with 1 added to the left side of each
