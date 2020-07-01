@@ -1,18 +1,49 @@
 const {
   doubleAll,
-  absoluteValues,
   yelledGreetings,
+  absoluteValues,
+  upperCaseFirstLetters,
   changeToInitials,
   doubleOdd,
-  upperCaseFirstLetters,
   add1ToLeft,
 } = require('./main.js')
 
 
 describe('doubleAll', () => {
   it(`doubles all numbers passed in`, () => {
-    expect(doubleAll([1, 2, 3, 4])).toEqual([2, 4, 6, 8]);
-    expect(doubleAll([-5, 101, 0, 32.5])).toEqual([-10, 202, 0, 65]);
+    const originalNumbers1 = [1, 2, 3, 4];
+    const numbers1 = [1, 2, 3, 4];
+    const originalNumbers2 = [-5, 101, 0, 32.5];
+    const numbers2 = [-5, 101, 0, 32.5];
+    expect(doubleAll(numbers1)).toEqual([2, 4, 6, 8]);
+    expect(doubleAll(numbers2)).toEqual([-10, 202, 0, 65]);
+    expect(numbers1).toEqual(originalNumbers1);
+    expect(numbers2).toEqual(originalNumbers2);
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNumbers1 = [1, 2, 3, 4];
+    const numbers1 = [1, 2, 3, 4];
+    const originalNumbers2 = [-5, 101, 0, 32.5];
+    const numbers2 = [-5, 101, 0, 32.5];
+    doubleAll(numbers1)
+    doubleAll(numbers2)
+    expect(numbers1).toEqual(originalNumbers1);
+    expect(numbers2).toEqual(originalNumbers2);
+  })
+})
+
+describe('yelledGreetings', () => {
+  it(`adds an exclamation point to the end of each string`, () => {
+    expect(yelledGreetings(['hello', 'there', 'you absolute fiend'])).toEqual(['hello!', 'there!', 'you absolute fiend!']);
+    expect(yelledGreetings(['hey', 'you'])).toEqual(['hey!', 'you!']);
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalGreetings = ['hello', 'there', 'you absolute fiend'];
+    const greetings = ['hello', 'there', 'you absolute fiend'];
+    yelledGreetings(greetings)
+    expect(greetings).toEqual(originalGreetings);
   })
 })
 
@@ -31,28 +62,12 @@ describe('absoluteValues', () => {
     expect(absoluteValues([0, 0, 0])).toEqual([0, 0, 0]);
     expect(absoluteValues([0])).toEqual([0]);
   })
-})
 
-describe('yelledGreetings', () => {
-  it(`adds an exclamation point to the end of each string`, () => {
-    expect(yelledGreetings(['hello', 'there', 'you absolute fiend'])).toEqual(['hello!', 'there!', 'you absolute fiend!']);
-  })
-})
-
-describe('changeToInitials', () => {
-  it(`will return the first letters from each word`, () => {
-    expect(changeToInitials(['Colin Jaffe', 'Mesuara Kaleziq'])).toEqual(['CJ', 'MK'])
-    expect(changeToInitials(['Larry Bird', 'Robert Parrish'])).toEqual(['LB', 'RP'])
-  })
-})
-
-describe('doubleOdd', () => {
-  it(`doubles all odd numbers passed in`, () => {
-    expect(doubleOdd([1, 2, 3, 4, 101, 0, 32.5])).toEqual([2, 2, 6, 4, 202, 0, 32.5]);
-  })
-  
-  it(`can handle negative numbers`, () => {
-    expect(doubleOdd([-5, -1, -100, -2])).toEqual([-10, -2, -100, -2]);
+  it(`doesn't modify the original array`, () => {
+    const originalNumbers = [-1, -3, 1000];
+    const numbers = [-1, -3, 1000];
+    absoluteValues(numbers)
+    expect(numbers).toEqual(originalNumbers);
   })
 })
 
@@ -64,6 +79,44 @@ describe('upperCaseFirstLetters', () => {
   it(`lowercases the other letters of each name`, () => {
     expect(upperCaseFirstLetters(['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'])).toEqual(['Colin', 'Genghis', 'Mesuara', 'Ginny', 'Michael', 'Pak', 'Tenzin'])
   })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNames = ['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'];
+    const names = ['cOlin', 'geNghis', 'mesUara', 'ginny', 'michael', 'pak', 'tenzin'];
+    upperCaseFirstLetters(names)
+    expect(names).toEqual(originalNames);
+  })
+})
+
+describe('changeToInitials', () => {
+  it(`will return the first letters from each word`, () => {
+    expect(changeToInitials(['Colin Jaffe', 'Mesuara Kaleziq'])).toEqual(['CJ', 'MK'])
+    expect(changeToInitials(['Larry Bird', 'Robert Parrish'])).toEqual(['LB', 'RP'])
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNames = ['Colin Jaffe', 'Mesuara Kaleziq']
+    const names = ['Colin Jaffe', 'Mesuara Kaleziq']
+    changeToInitials(names)
+    expect(names).toEqual(originalNames);
+  })
+})
+
+describe('doubleOdd', () => {
+  it(`doubles all odd numbers passed in`, () => {
+    expect(doubleOdd([1, 2, 3, 4, 101, 0, 32.5])).toEqual([2, 2, 6, 4, 202, 0, 32.5]);
+  })
+  
+  it(`can handle negative numbers`, () => {
+    expect(doubleOdd([-5, -1, -100, -2])).toEqual([-10, -2, -100, -2]);
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNumbers = [-1, -3, 1000];
+    const numbers = [-1, -3, 1000];
+    doubleOdd(numbers)
+    expect(numbers).toEqual(originalNumbers);
+  })
 })
 
 describe('add1ToLeft', () => {
@@ -73,5 +126,12 @@ describe('add1ToLeft', () => {
 
   it(`can handle negative numbers`, () => {
     expect(add1ToLeft([-1, -50])).toEqual([-11, -150])
+  })
+
+  it(`doesn't modify the original array`, () => {
+    const originalNumbers = [-1, -3, 1000];
+    const numbers = [-1, -3, 1000];
+    add1ToLeft(numbers)
+    expect(numbers).toEqual(originalNumbers);
   })
 })
